@@ -1,30 +1,21 @@
-import { useState } from "react";
+import ExpandableText from "./ExpandableText";
 
 function App() {
-  const [game, setGame] = useState({ id: 1, player: { name: "John" } });
-  const [courses, setCourses] = useState({
-    category: "Sports",
-    name: ["Table teenis"],
-  });
-
-  const handlePlayer = () => {
-    setGame({ ...game, player: { ...game.player, name: "Bob" } });
-  };
-
-  const handleCourses = () => {
-    setCourses({ ...courses, name: [...courses.name, "Badminton"] });
-  };
-
   return (
     <>
-      <p>Player: {game.player.name}</p>
-      <button onClick={handlePlayer}>Change player</button>
-      <p>Courses: </p>
-      {courses.name.map((name) => (
-        <p key={name}> {name}</p>
-      ))}
-
-      <button onClick={handleCourses}>Change courses</button>
+      <ExpandableText>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
+        nihil alias deleniti nostrum consectetur consequatur et autem sequi
+        impedit accusantium voluptates eaque fugit sed, sint ex ab iusto beatae
+        architecto ipsum, amet blanditiis. Deserunt minus debitis reiciendis
+        eaque saepe a magni aspernatur, nemo dolores dolorem. Consequatur, sit
+        ab fuga eligendi ullam tempore sed enim aspernatur repellendus officia
+        possimus adipisci ea perspiciatis atque? Velit, deleniti! Reprehenderit
+        corrupti eos enim in vel, repellendus earum dolores optio ab magnam!
+        Sequi quibusdam adipisci asperiores odio quod, unde perferendis,
+        accusamus corporis vel debitis tenetur odit a consequuntur praesentium
+        provident sapiente! Recusandae consectetur ratione sunt nemo!
+      </ExpandableText>
     </>
   );
 }
