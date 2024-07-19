@@ -1,14 +1,30 @@
 import { useState } from "react";
-import NavBar from "./NavBar";
-import Cart from "./Cart";
 
 function App() {
-  const [items, setItems] = useState(["product1", "product2"]);
+  const [game, setGame] = useState({ id: 1, player: { name: "John" } });
+  const [courses, setCourses] = useState({
+    category: "Sports",
+    name: ["Table teenis"],
+  });
+
+  const handlePlayer = () => {
+    setGame({ ...game, player: { ...game.player, name: "Bob" } });
+  };
+
+  const handleCourses = () => {
+    setCourses({ ...courses, name: [...courses.name, "Badminton"] });
+  };
 
   return (
     <>
-      <NavBar itemsCount={items.length} />
-      <Cart items={items} onClear={() => setItems([])} />
+      <p>Player: {game.player.name}</p>
+      <button onClick={handlePlayer}>Change player</button>
+      <p>Courses: </p>
+      {courses.name.map((name) => (
+        <p key={name}> {name}</p>
+      ))}
+
+      <button onClick={handleCourses}>Change courses</button>
     </>
   );
 }
